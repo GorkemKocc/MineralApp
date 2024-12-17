@@ -1,10 +1,6 @@
 import React from 'react';
-import MainScreen from './src/MainScreen';
+import AppNavigator from './src/navigation/AppNavigator';
 
-function App(): React.JSX.Element {
-  return (
-    <MainScreen />
-  );
+export default function App() {
+  return <AppNavigator />;
 }
-
-export default App;
