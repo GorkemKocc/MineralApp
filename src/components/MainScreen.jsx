@@ -4,9 +4,9 @@ import { requestGalleryPermission, requestCameraPermission } from '../utils/Perm
 import { pickImageFromGallery, captureImageWithCamera } from '../utils/Camera';
 import { useNavigation } from '@react-navigation/native';
 
-export default function MainScreen() {
+export default function MainScreen({ navigation }) {
   const [mineralType, setMineralType] = useState('');
-  const navigation = useNavigation();
+  //const navigation = useNavigation();
 
   const handleGalleryPick = async () => {
     const hasPermission = await requestGalleryPermission();
@@ -31,7 +31,7 @@ export default function MainScreen() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image
-        source={require('../assets/mainimage.webp')}
+        source={require('../../assets/mainimage.webp')}
         style={styles.image}
       />
       <Text style={styles.title}>Discover Minerals</Text>
@@ -56,7 +56,7 @@ export default function MainScreen() {
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={styles.uploadButton} // Aynı stil buton kullanılarak, farklı görünümü için başka bir stil kullanılabilir
-          onPress={() => navigation.navigate('Details')}
+          onPress={() => navigation.navigate('Details', { message: 'Merhaba ESRA!' })}
         >
           <Text style={styles.buttonText}>Go to Details</Text>
         </TouchableOpacity>
